@@ -8,6 +8,8 @@ import java.net.URL;
 import java.util.Arrays;
 
 /**
+ * 二分查找法。
+ * 通过idea的edit configurations，设置工作目录，启动参数，重定向参数。
  * @description:
  * @author: hjg
  * @createdOn: 2021/3/15
@@ -35,27 +37,21 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        //参数为 tinyW.txt < tinyT.txt
-        //在linux下可以使用'<'作为输入重定向，将输入的内容写入tinyT.txt
 
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        //ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         //使用ClassLoader的话，不能加上'/'表示根classpath
         //CladdLoadern能识别的类路径不以'/'开头，但是可以使用'/'分隔
-        URL url = classLoader.getResource(args[0]);
+        //URL url = classLoader.getResource(args[0]);
 
         //使用Class获取资源时，需要加上'/'表示根classpath
         //实际会将'/'移除，并使用ClassLoader加载
-        //如果不加上'/'，则会解析为com/hjg/plain/algorithm/fundamental/tinyW.txt路径，但是实际是在根路径
+        //如果不加上'/'，则会解析为com/hjg/plain/algorithm/fundamental/tinyW.txt路径，但是文件实际是与com目录同一层级
         //URL url = BinarySearch.class.getResource(args[0]);
 
-        In in = new In(url);
+        In in = new In(args[0]);
         int[] whiteList = in.readAllInts();
 
         Arrays.sort(whiteList);
-
-        for(int ele : whiteList) {
-            System.out.println(ele);
-        }
 
         //手动输入数字，使用ctrl+d结束
         while(!StdIn.isEmpty()) {
