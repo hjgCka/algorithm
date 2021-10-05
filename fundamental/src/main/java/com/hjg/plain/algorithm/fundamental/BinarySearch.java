@@ -52,7 +52,7 @@ public class BinarySearch {
 
         Arrays.sort(whiteList);
 
-        //手动输入数字，使用ctrl+d结束
+        //需要idea配置输入重定向，或手动输入数字，使用ctrl+d结束
         while(!StdIn.isEmpty()) {
             int key = StdIn.readInt();
             if(indexOf(key, whiteList) < 0) {
